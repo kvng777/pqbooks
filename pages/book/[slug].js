@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { client, urlFor } from "../../lib/client";
-import Image from "next/image";
 import Link from "next/link";
 
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -42,11 +41,11 @@ const BookDetails = ({ book, books }) => {
 
       <div className="book-wrapper">
         <div className="book-image">
-          <Image src={urlFor(image && image[index])} alt="book images" />
+          <img src={urlFor(image && image[index])} alt="book images" />
           {/* {image && image.map((img, i) => <img src={urlFor(img)} key={i} />)} */}
           <div className="book-image-carousel">
             {image?.map((item, i) => (
-              <Image
+              <img
                 key={i}
                 src={urlFor(item)}
                 className={
@@ -57,25 +56,23 @@ const BookDetails = ({ book, books }) => {
               />
             ))}
           </div>
-          {genre && (
-            <div className="book-stats">
-              <div className="genre">Genre: {genre}</div>
-              <div className="rate">
-                <Rating
-                  name="half-rating-read"
-                  defaultValue={myrating}
-                  precision={0.5}
-                  readOnly
-                />
-              </div>
-              <div className="availability">
-                Availability:
-                <p className={`inLibrary ${released ? "" : "notAvailable"}`}>
-                  In Library
-                </p>
-              </div>
+          <div className="book-stats">
+            <div className="genre">Genre: {genre}</div>
+            <div className="rate">
+              <Rating
+                name="half-rating-read"
+                defaultValue={myrating}
+                precision={0.5}
+                readOnly
+              />
             </div>
-          )}
+            <div className="availability">
+              Availability:
+              <p className={`inLibrary ${released ? "" : "notAvailable"}`}>
+                {released ? "In Library" : "Missing"}
+              </p>
+            </div>
+          </div>
         </div>
         <div className="book-desc">
           <div className="book-contents">

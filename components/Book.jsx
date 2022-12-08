@@ -4,7 +4,6 @@ import Link from "next/link";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 // import WarningAmberTwoToneIcon from "@mui/icons-material/WarningAmberTwoTone";
 import { urlFor } from "../lib/client";
-import Image from "next/image";
 
 const Book = ({ book: { slug, image, title, author, released } }) => {
   // console.log("i am in books", book);
