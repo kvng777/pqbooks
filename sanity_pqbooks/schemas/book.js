@@ -16,7 +16,7 @@ export default {
     },
     {
       name: "manuscript",
-      title: "manuscript",
+      title: "PDF Book",
       type: "file",
       fields: [
         {
