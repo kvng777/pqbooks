@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { client, urlFor } from "../../lib/client";
+import Image from "next/image";
 import Link from "next/link";
 
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -31,7 +32,7 @@ const BookDetails = ({ book, books }) => {
         </Link>
         {ref && (
           <div className="book-pdf">
-            <a href={`${getUrlFromId(ref)}`} target="_blank">
+            <a href={`${getUrlFromId(ref)}`} target="_blank" rel="noreferrer">
               <PictureAsPdfIcon />
               Read PDF
             </a>
@@ -41,16 +42,18 @@ const BookDetails = ({ book, books }) => {
 
       <div className="book-wrapper">
         <div className="book-image">
-          <img src={urlFor(image && image[index])} />
+          <Image src={urlFor(image && image[index])} alt="book images" />
           {/* {image && image.map((img, i) => <img src={urlFor(img)} key={i} />)} */}
           <div className="book-image-carousel">
             {image?.map((item, i) => (
-              <img
+              <Image
+                key={i}
                 src={urlFor(item)}
                 className={
                   i === index ? "small-image selected-image" : "small-image"
                 }
                 onMouseEnter={() => setIndex(i)}
+                alt="book carousel images"
               />
             ))}
           </div>
@@ -86,7 +89,7 @@ const BookDetails = ({ book, books }) => {
               content.map((item, idx) => (
                 <div key={idx}>
                   {item.children.map((child, idx) => (
-                    <p>{child.text}</p>
+                    <p key={idx}>{child.text}</p>
                   ))}
                 </div>
               ))}
