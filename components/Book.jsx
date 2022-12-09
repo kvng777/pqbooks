@@ -16,7 +16,7 @@ const Book = ({ book: { slug, image, title, author, released } }) => {
           {firstImage && <img src={urlFor(firstImage)} alt="book images" />}
         </div>
         <div className="overlay">
-          <div className="info-icon">
+          <div className="info-icon bounce">
             <InfoOutlinedIcon />
           </div>
           <div className="info">

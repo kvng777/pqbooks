@@ -68,9 +68,13 @@ const BookDetails = ({ book, books }) => {
             </div>
             <div className="availability">
               Availability:
-              <p className={`inLibrary ${released ? "" : "notAvailable"}`}>
+              <label
+                className={`inLibrary ${
+                  released ? "" : "notAvailable blink-1"
+                }`}
+              >
                 {released ? "In Library" : "Missing"}
-              </p>
+              </label>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ const Home = ({ books }) => {
   console.log("books check", books);
   return (
     <>
-      <div className="main-container">
+      <div className="inner-container">
         <div className="book-listing">
           {books?.map((book) => (
             <Book key={book._id} book={book} />
