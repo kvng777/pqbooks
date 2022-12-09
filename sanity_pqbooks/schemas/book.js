@@ -66,11 +66,6 @@ export default {
         Rule.required().warning("Please select a category dummy!")
     },
     {
-      name: "summary",
-      title: "Summary",
-      type: "text"
-    },
-    {
       name: "content",
       title: "Content",
       type: "array",
