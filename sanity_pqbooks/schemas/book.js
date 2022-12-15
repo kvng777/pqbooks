@@ -48,12 +48,6 @@ export default {
         maxLength: 90
       }
     },
-    // {
-    //   name: "myrating",
-    //   title: "My Rating",
-    //   type: "number",
-    //   validation: (Rule) => Rule.max(5)
-    // },
     {
       name: "myrating",
       title: "My Rating",

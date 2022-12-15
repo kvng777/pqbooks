@@ -5,12 +5,14 @@ import { Book } from "../components";
 
 const Home = ({ books }) => {
   console.log("books check", books);
+  const noDraftBookbs = books.filter((isId) => !isId._id.includes("drafts"));
+  console.log("noDraftBookbs", noDraftBookbs);
   return (
     <>
       <div className="inner-container">
         <div className="book-listing">
-          {books?.map((book) => (
-            <Book key={book._id} book={book} />
+          {noDraftBookbs?.map((book) => (
+            <Book key={book && !book._id.includes("drafts")} book={book} />
           ))}
           {/* {books?.map(
             (book) =>

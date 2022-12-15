@@ -1,3 +1,5 @@
+@import "../styles/mixins.scss";
+
 html,
 body,
 p {
@@ -23,11 +25,17 @@ h5 {
 h1 {
   font-size: 60px;
   margin: 20px 0;
+  @include tablet {
+    font-size: 45px;
+  }
 }
 
 h2 {
   font-size: 35px;
   margin: 5px 0;
+  @include tablet {
+    font-size: 25px;
+  }
 }
 
 p {
@@ -97,6 +105,27 @@ p {
   max-width: 1300px;
   padding: 50px;
   margin: 0 auto;
+  overflow-y: scroll;
+  @include tablet {
+    padding: 25px;
+    .book {
+      &-wrapper {
+        flex-direction: column;
+      }
+      &-title {
+        h1 {
+          margin-top: 20px !important;
+        }
+      }
+      &-desc {
+        width: 100% !important;
+        padding: 0 !important;
+      }
+    }
+    .controller {
+      margin-top: 0 !important;
+    }
+  }
 }
 
 .footer {
@@ -116,6 +145,7 @@ p {
   padding: 20px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   a {
     margin-right: 25px;
   }
@@ -123,6 +153,7 @@ p {
     position: relative;
     max-width: 200px;
     padding-right: 15px;
+    margin-bottom: 25px;
     max-height: 400px;
     box-shadow: 10px 10px 13px -4px rgba(0, 0, 0, 0.5);
     &:hover {
@@ -166,6 +197,23 @@ p {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+    }
+    .no-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #f97b55, #eea06f, #f4d6b6, #cac9c9);
+      background-size: 400% 400%;
+      animation: gradient 3s ease infinite;
+      &-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        svg {
+          height: 100px;
+          width: 100px;
+        }
       }
     }
     .info {
@@ -253,7 +301,7 @@ p {
         height: 100%;
         width: 100%;
         object-fit: contain;
-        max-height: 400px;
+        max-height: 350px;
         max-width: 250px;
       }
       &-carousel {
@@ -296,9 +344,28 @@ p {
       .book-contents {
         height: 100%;
         // padding: 20px 0;
-        .book-title {
-          h1 {
-            margin-top: 0;
+        .book {
+          &-title {
+            h1 {
+              margin-top: 0;
+            }
+          }
+          &-author {
+            display: flex;
+            align-items: center;
+            svg {
+              height: 50px;
+              width: 50px;
+              @include tablet {
+                height: 35px;
+                width: 35px;
+              }
+            }
+          }
+          &-overview {
+            @include tablet {
+              line-height: 1.5;
+            }
           }
         }
       }
@@ -361,5 +428,17 @@ p {
     transform: translateY(0);
     animation-timing-function: ease-out;
     opacity: 1;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
