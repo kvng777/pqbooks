@@ -11,8 +11,8 @@ export default {
       of: [{ type: "image" }],
       options: {
         hotspot: true
-      },
-      validation: (Rule) => Rule.required().warning("No book is nameless!")
+      }
+      // validation: (Rule) => Rule.required().warning("No book is nameless!")
     },
     {
       name: "manuscript",

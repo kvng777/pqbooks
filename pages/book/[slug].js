@@ -10,7 +10,6 @@ import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 
 const BookDetails = ({ book, books }) => {
   const { image, author, title, genre, content, myrating, released } = book;
-  console.log("book check!", book);
 
   const [index, setIndex] = useState(0);
 
